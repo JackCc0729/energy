@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block body %}
+<div class="col-lg-12 text-center" style="margin: 10px">
+  <h3>Frequently Asked Questions</h3>
+</div>
+<div class="container card">
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>Who are the EnerGeeks?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-0">
+    <div class="col-sm-12 text-left" id="faq0" style="margin: 5px">
+      <p>We are computer science & statistics students at LMU Munich and this project is happening as part of a Data Science Practical. Our plan was to participate in the associated Kaggle Challenge and subsequently build a product surrounding the trained model. Eventually we placed 160th in the public leaderboard and unfortunately only 509th in the private leaderboard.</p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>What is the EnergApp?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-1">
+    <div class="col-sm-12 text-left" id="faq1" style="margin: 5px">
+      <p>EnergApp is the second phase of our data science practical. The aim of EnergApp is to incorporate the predicted model from the kaggle challenge. The idea behind this is that you can submit your building's data and in return get the predicted energy consumption for said building, which makes our findings available to everyone.</p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>Do I need to sign up?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-2">
+    <div class="col-sm-12 text-left" id="faq2" style="margin: 5px">
+      <p>Yes, in order to submit and manage your buildings, you have to sign up for our web application. Don't worry, your data will be safe with us</p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>Where can I manage my buildings?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-3">
+    <div class="col-sm-12 text-left" id="faq3" style="margin: 5px">
+      <p>Use the navbar to go to the buildings section or click <a href="{{url_for('main_bp.buildings_page')}}">here</a>. You'll find a list of all your buildings and accompanying attributes.</p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>How can I submit my building's data?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-4">
+    <div class="col-sm-12 text-left" id="faq4" style="margin: 5px">
+      <p>In the buildings tab just click on the <b>ADD+</b> button and enter your building's details.</p>
+    </div>
+  </div>
+
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>Where do I find the predictions?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-11">
+    <div class="col-sm-12 text-left" id="faq11" style="margin: 5px">
+      <p>Just go to the <a href="{{url_for('main_bp.predictions_page')}}">prediction tab</a> and enjoy.</p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>What model is used for the predictions?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-5">
+    <div class="col-sm-12 text-left" id="faq5" style="margin: 5px">
+      <p> We trained our model by using LightGBM, which is common framework for gradient boosting.</p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>Can I trust the predictions?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-6">
+    <div class="col-sm-12 text-left" id="faq6" style="margin: 5px">
+      <p>Well yes, but actually no. We tried to make the predictions as accurate as possible but forecasting the energy consumption for unseen buildings is still very experimental and needs further evaluation to be stable.</p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>Can I download the model somewhere?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-7">
+    <div class="col-sm-12 text-left" id="faq7" style="margin: 5px">
+      <p>We provide our model in txt-format, which can be downloaded from <a href="https://syncandshare.lrz.de/getlink/fiEpYXwqbwsQjuBHaJ1ZRNnF/model-lgbm-gbdt-600-no-ids.txt">here</a></p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>Can I access your model without your app?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-8">
+    <div class="col-sm-12 text-left" id="faq8" style="margin: 5px">
+      <p>Sure, we provide a public endpoint, which will return your predictions if you provide the necessary inpute data. The endpoint is "localhost:5001/predict".</p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>What input is required for Model API?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-9">
+    <div class="col-sm-12 text-left" id="faq9" style="margin: 5px">
+      <p> We provide a list of all required attributes as well as an example request, which can be found in our <a href="https://github.com/energeeks/ashrae-energy-prediction">repository</a>.
+      </p>
+    </div>
+  </div>
+
+  <button type="button" class="collapsible" style="margin-top: 10px;">
+    <strong>I really like it here, what can I do for you?</strong>
+  </button>
+  <div class="row align-items-center coll-content" id="coll-10">
+    <div class="col-sm-12 text-left" id="faq10" style="margin: 5px">
+      <p>Thanks for the compliment! We really appreciate it, since we invested a lot of time and effort to create this amazing project. If by chance you are our supervisor, we would be really happy to receive a good grade ;)</p>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='faq.js') }}"></script>
+
+{% endblock %}
